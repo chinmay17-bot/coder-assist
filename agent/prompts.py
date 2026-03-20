@@ -7,7 +7,6 @@ User request:
     """
     return PLANNER_PROMPT
 
-
 def architect_prompt(plan: str) -> str:
     ARCHITECT_PROMPT = f"""
 You are the ARCHITECT agent. Given this project plan, break it down into explicit engineering tasks.
@@ -27,17 +26,17 @@ Project Plan:
     """
     return ARCHITECT_PROMPT
 
-
 def coder_system_prompt() -> str:
     CODER_SYSTEM_PROMPT = """
 You are the CODER agent.
 You are implementing a specific engineering task.
-You have access to tools to read and write files.
 
-Always:
-- Review all existing files to maintain compatibility.
-- Implement the FULL file content, integrating with other modules.
+CRITICAL RULES:
+- DO NOT attempt to write to the disk or use file tools.
+- Output the complete code for the requested file directly in your response.
+- Use Markdown code blocks to format the code.
+- Precede every code block with the file path/name as an explicitly bolded header (e.g., ### `src/main.py`).
+- Implement the FULL file content, integrating with other modules. Do not skip lines or use placeholders.
 - Maintain consistent naming of variables, functions, and imports.
-- When a module is imported from another file, ensure it exists and is implemented as described.
     """
     return CODER_SYSTEM_PROMPT
