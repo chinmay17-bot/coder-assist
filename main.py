@@ -22,7 +22,7 @@ if "project_files" not in st.session_state:
 
 AVATARS = {"user": "👤", "planner": "🧠", "architect": "📐", "coder": "💻"}
 
-st.title("👨‍💻 AI DevTeam Workspace")
+st.title(" AI DevTeam Workspace")
 
 # --- CREATE SIDE-BY-SIDE COLUMNS ---
 # col_chat gets 40% of the screen, col_workspace gets 60%
